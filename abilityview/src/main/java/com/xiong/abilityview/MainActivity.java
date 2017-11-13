@@ -7,8 +7,9 @@ import com.xiong.abilityview.bean.AbilityBean;
 import com.xiong.abilityview.widget.AbilityView;
 
 /**
- * @author xiong
- * @date 2017/11/10
+ * @author: xiong
+ * @time: 2017/11/10
+ * @说明:
  */
 public class MainActivity extends AppCompatActivity {
 
