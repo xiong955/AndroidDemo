@@ -19,23 +19,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv = findViewById(R.id.tv);
-        tv.setText("Hello World!");
-
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tv.setText("Hello World!");
                 tv.run();
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv.run();
+                tv.reset();
             }
         });
-        tv.reset();
     }
 }

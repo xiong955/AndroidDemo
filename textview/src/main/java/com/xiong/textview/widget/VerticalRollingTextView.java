@@ -49,7 +49,6 @@ public class VerticalRollingTextView extends View {
      */
     private float mCurrentOffsetY;
 
-    private float mOrgOffsetY = -1;
 
     /**
      * 矩形画布
@@ -84,10 +83,8 @@ public class VerticalRollingTextView extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         // 颜色
         mPaint.setColor(Color.WHITE);
-        // 居中
-        mPaint.setTextAlign(Paint.Align.CENTER);
         // 大小
-        mPaint.setTextSize(20);
+        mPaint.setTextSize(26);
 
         // 字体度量
         Paint.FontMetricsInt metricsInt = mPaint.getFontMetricsInt();
@@ -101,9 +98,9 @@ public class VerticalRollingTextView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mPaint.getTextBounds(default_text, 0, default_text.length(), bounds);
         mOffsetY = (getHeight() + bounds.height()) * 0.5f;
-        mOffsetX = (getWidth() + bounds.width()) * 0.5f;
-        mOrgOffsetY = mCurrentOffsetY = mOffsetY - mTextTopToAscentOffsetY;
-        mAnimation.updateValue(mOrgOffsetY, -2 * mTextTopToAscentOffsetY);
+        mOffsetX = getWidth() * 0.5f;
+        mCurrentOffsetY = mOffsetY;
+        mAnimation.updateValue(mOffsetY, -2 * mTextTopToAscentOffsetY);
     }
 
     @Override
@@ -111,7 +108,7 @@ public class VerticalRollingTextView extends View {
         float a = mPaint.measureText("?");
         float b = mPaint.measureText(text);
         canvas.drawText(default_text, mOffsetX - a/2, mCurrentOffsetY, mPaint);
-        canvas.drawText(text, mOffsetX - b/2, mCurrentOffsetY + mOffsetY + mTextTopToAscentOffsetY, mPaint);
+        canvas.drawText(text, mOffsetX - b/2, mCurrentOffsetY + mOffsetY + 2*mTextTopToAscentOffsetY, mPaint);
     }
 
     class InternalAnimation extends Animation {
@@ -152,7 +149,7 @@ public class VerticalRollingTextView extends View {
      * 重置控件
      */
     public void reset() {
-        mCurrentOffsetY = mOffsetY - mTextTopToAscentOffsetY;
+        mCurrentOffsetY = mOffsetY;
         isRun = false;
         invalidate();
     }
