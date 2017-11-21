@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/abilityview" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/textview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

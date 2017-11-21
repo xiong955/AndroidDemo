@@ -1,1 +1,1 @@
-include ':app', ':abilityview'
+include ':app', ':abilityview', ':textview'
