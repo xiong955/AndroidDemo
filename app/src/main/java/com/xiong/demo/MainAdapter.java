@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.xiong.demo.widget.ScrollImageView;
+
 import java.util.List;
 
 /**
@@ -16,10 +18,10 @@ import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> {
 
-    private List<String> mData;
+    private List<MainBean> mData;
     private MainActivity mActivity;
 
-    public MainAdapter(List<String> mData, MainActivity mActivity) {
+    public MainAdapter(List<MainBean> mData, MainActivity mActivity) {
         this.mData = mData;
         this.mActivity = mActivity;
     }
@@ -34,18 +36,23 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        holder.tv.setText(mData.get(position));
-        if (mOnItemClickListener != null)
-        {
-            holder.itemView.setOnClickListener(new View.OnClickListener()
-            {
+        holder.tv.setText(mData.get(position).getTitle());
+        holder.iv.setImageResource(mData.get(position).getDrawable());
+        if (mOnItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     int pos = holder.getLayoutPosition();
                     mOnItemClickListener.onItemClick(holder.itemView, pos);
                 }
             });
+        }
+        if (position > 0 && position % 6 == 0) {
+            holder.tv.setVisibility(View.GONE);
+            holder.iv.setVisibility(View.VISIBLE);
+        } else {
+            holder.tv.setVisibility(View.VISIBLE);
+            holder.iv.setVisibility(View.GONE);
         }
     }
 
@@ -55,7 +62,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     }
 
     public void addData(int position) {
-        mData.add(position, "Insert One");
+        MainBean bean = new MainBean();
+        bean.setTitle("Insert One");
+        bean.setDrawable(R.drawable.a2);
+        mData.add(position, bean);
         notifyItemInserted(position);
     }
 
@@ -64,22 +74,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         notifyItemRemoved(position);
     }
 
-    private OnItemClickListener  mOnItemClickListener;
+    private OnItemClickListener mOnItemClickListener;
 
-    public interface OnItemClickListener{
-        void onItemClick(View view,int position);
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
     }
 
-    public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tv;
+        ScrollImageView iv;
 
         MyViewHolder(View view) {
             super(view);
-            tv = view.findViewById(R.id.text1);
+            tv = view.findViewById(R.id.tv_content);
+            iv = view.findViewById(R.id.iv_content);
         }
     }
 

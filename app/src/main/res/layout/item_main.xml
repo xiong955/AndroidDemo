@@ -2,10 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:gravity="center">
+    
+    <com.xiong.demo.widget.ScrollImageView
+        android:id="@+id/iv_content"
+        android:src="@drawable/a3"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="170dp" />
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center" />

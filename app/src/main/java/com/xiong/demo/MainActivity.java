@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.xiong.demo.widget.ScrollImageView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private RecyclerView rv;
     private MainAdapter mAdapter;
-    private List<String> mData = new ArrayList<>();
+    private List<MainBean> mData = new ArrayList<>();
+
+    private LinearLayoutManager mLinearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        for (int i = 0; i < 10; i++) {
-            mData.add(i + "");
+        for (int i = 0; i < 20; i++) {
+            MainBean bean = new MainBean();
+            bean.setTitle(i+"");
+            bean.setDrawable(R.drawable.a3);
+            mData.add(bean);
         }
     }
 
@@ -45,11 +52,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initRecycle() {
         mAdapter = new MainAdapter(mData, this);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter.setOnItemClickListener(this);
+        rv.setLayoutManager(mLinearLayoutManager = new LinearLayoutManager(this));
         rv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.setAdapter(mAdapter);
-        mAdapter.setmOnItemClickListener(this);
+        rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                int fPos = mLinearLayoutManager.findFirstVisibleItemPosition();
+                int lPos = mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
+                for (int i = fPos; i <= lPos; i++) {
+                    View view = mLinearLayoutManager.findViewByPosition(i);
+                    ScrollImageView scrollImageView = view.findViewById(R.id.iv_content);
+                    if (scrollImageView.getVisibility() == View.VISIBLE) {
+                        scrollImageView.setDx(mLinearLayoutManager.getHeight() - view.getTop());
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -57,9 +80,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.add:
                 mAdapter.addData(1);
+//                mAdapter.notifyDataSetChanged();
                 break;
             case R.id.remove:
                 mAdapter.removeData(1);
+                mAdapter.notifyDataSetChanged();
                 break;
             default:
                 break;
