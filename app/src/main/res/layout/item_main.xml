@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:gravity="center">
     
-    <com.xiong.demo.widget.ScrollImageView
+    <com.xiong.demo.widget.ScrollCircleImageView
         android:id="@+id/iv_content"
         android:src="@drawable/a3"
         android:scaleType="fitXY"

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.xiong.demo.widget.ScrollImageView;
+import com.xiong.demo.widget.ScrollCircleImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 40; i++) {
             MainBean bean = new MainBean();
             bean.setTitle(i+"");
             bean.setDrawable(R.drawable.a3);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int lPos = mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
                 for (int i = fPos; i <= lPos; i++) {
                     View view = mLinearLayoutManager.findViewByPosition(i);
-                    ScrollImageView scrollImageView = view.findViewById(R.id.iv_content);
+                    ScrollCircleImageView scrollImageView = view.findViewById(R.id.iv_content);
                     if (scrollImageView.getVisibility() == View.VISIBLE) {
                         scrollImageView.setDx(mLinearLayoutManager.getHeight() - view.getTop());
                     }

@@ -1,1 +1,1 @@
-include ':app', ':abilityview', ':textview', ':ui'
+include ':app', ':abilityview', ':textview', ':ui', ':shock'

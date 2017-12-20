@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.xiong.demo.widget.ScrollImageView;
+import com.xiong.demo.widget.ScrollCircleImageView;
 
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
                 }
             });
         }
-        if (position > 0 && position % 6 == 0) {
+        if (position > 0 && position % 10 == 0) {
             holder.tv.setVisibility(View.GONE);
             holder.iv.setVisibility(View.VISIBLE);
         } else {
@@ -86,7 +86,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tv;
-        ScrollImageView iv;
+        ScrollCircleImageView iv;
 
         MyViewHolder(View view) {
             super(view);
