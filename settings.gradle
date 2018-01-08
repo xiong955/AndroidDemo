@@ -1,1 +1,1 @@
-include ':app', ':abilityview', ':textview', ':ui', ':shock'
+include ':app', ':abilityview', ':textview', ':ui', ':shock', ':kotlin'
