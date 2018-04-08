@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout.setupWithViewPager(mViewPager);
         // TabLayout 指示器 (记得自己手动创建4个Fragment,注意是 app包下的Fragment 还是 V4包下的 Fragment)
         // TabLayout指示器添加文本
-        for (int i = 0;i<mList.size();i++) {
+        for (int i = 0; i < mList.size(); i++) {
             mTabLayout.addTab(mTabLayout.newTab());
             mTabLayout.getTabAt(i).setText(mList.get(i));
         }
@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
         private List<Fragment> mFragmentList;
 
-        public void setFragments(ArrayList<Fragment> fragments) {
-            mFragmentList = fragments;
-        }
-
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
+        }
+
+        public void setFragments(ArrayList<Fragment> fragments) {
+            mFragmentList = fragments;
         }
 
         @Override

@@ -17,12 +17,11 @@ import android.widget.RelativeLayout;
 
 public class DragActivity extends AppCompatActivity implements View.OnTouchListener {
 
+    public static final String TAG = "Drag";
     private Button mButton;
     private ViewGroup mViewGroup;
     private int xDelta;
     private int yDelta;
-    public static final String TAG = "Drag";
-
     private int mButtonWidth;
     private int mButtonHeight;
     private int mLayoutWidth;
