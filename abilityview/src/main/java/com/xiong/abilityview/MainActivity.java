@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AbilityBean abilityBean = new AbilityBean(70,100,70,80,60,50,90);
+        AbilityBean abilityBean = new AbilityBean(70,100,70,80,60,100,90);
         mAbilityView = findViewById(R.id.view);
         mAbilityView.setData(abilityBean);
     }
