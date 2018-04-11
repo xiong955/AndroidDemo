@@ -15,10 +15,10 @@ import android.view.View;
 /**
  * @author: xiong
  * @time: 2017/12/20
- * @说明:
+ * @说明: 圆点绕矩形
  */
 
-public class DemoLayout extends View{
+public class DemoLayout extends View {
 
     private Paint mRedPaint;
     private Paint mBluePaint;
@@ -28,11 +28,11 @@ public class DemoLayout extends View{
     private int mPhase25 = 25;
 
     public DemoLayout(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public DemoLayout(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public DemoLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -64,28 +64,27 @@ public class DemoLayout extends View{
         mPath.addCircle(0, 0, 5, Path.Direction.CCW);
     }
 
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
     @SuppressLint({"NewApi", "DrawAllocation"})
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         // 虚线
-        mRect.set(0,0,getWidth(),getHeight());
+        mRect.set(0, 0, getWidth(), getHeight());
 //        PathEffect pathEffect = new DashPathEffect(new float[]{10, 5}, 10);
 //        mPaint.setPathEffect(pathEffect);
         mRedPaint.setPathEffect(new PathDashPathEffect(mPath, 50, mPhase,
                 PathDashPathEffect.Style.ROTATE));
-        canvas.drawRect(mRect,mRedPaint);
+        canvas.drawRect(mRect, mRedPaint);
         mBluePaint.setPathEffect(new PathDashPathEffect(mPath, 50, mPhase25,
                 PathDashPathEffect.Style.ROTATE));
-        canvas.drawRect(mRect,mBluePaint);
+        canvas.drawRect(mRect, mBluePaint);
         mPhase++;
         mPhase25++;
         invalidate();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 }

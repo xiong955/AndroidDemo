@@ -1,4 +1,4 @@
-package com.xiong.ui;
+package com.xiong.ui.tabAndviewpager;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,10 +8,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.xiong.ui.fragment.OneFragment;
+import com.xiong.ui.R;
+import com.xiong.ui.tabAndviewpager.fragment.OneFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * @author: xiong
+ * @time: 2018/03/16
+ * @说明: tabLayout, viewpager联动
+ */
 
 public class MainActivity extends AppCompatActivity {
 

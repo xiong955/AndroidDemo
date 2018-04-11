@@ -1,4 +1,4 @@
-package com.xiong.ui.fragment;
+package com.xiong.ui.tabAndviewpager.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
