@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         tv1 = findViewById(R.id.tv1);
         ImageSpan span = new ImageSpan(this, R.mipmap.ic_launcher);//加载图片的资源
         SpannableString spanStr = new SpannableString("icon");//不想要这个字符串可以试试空字符串

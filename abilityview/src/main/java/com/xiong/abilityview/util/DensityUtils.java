@@ -6,12 +6,12 @@ import android.util.TypedValue;
 /**
  * @author: xiong
  * @time: 2015/09/28
- * @说明:
+ * @说明: dp, px, sp转换
  */
 public class DensityUtils {
 
     private DensityUtils() {
-          /* cannot be instantiated */
+        /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 

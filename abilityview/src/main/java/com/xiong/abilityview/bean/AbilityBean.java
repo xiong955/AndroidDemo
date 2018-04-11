@@ -3,7 +3,7 @@ package com.xiong.abilityview.bean;
 /**
  * @author: xiong
  * @time: 2017/11/10
- * @说明:
+ * @说明: Bean实体
  */
 
 public class AbilityBean {

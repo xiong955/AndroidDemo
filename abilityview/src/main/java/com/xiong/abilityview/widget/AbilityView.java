@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * @author: xiong
  * @time: 2017/11/10
- * @说明:
+ * @说明: 能力图View
  */
 
 public class AbilityView extends View {
@@ -135,14 +135,6 @@ public class AbilityView extends View {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        //设置控件大小
-        setMeasuredDimension(viewWidth, viewHeight);
-    }
-
-    @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         initSize(getContext());
@@ -164,6 +156,14 @@ public class AbilityView extends View {
 //        linePaint.setColor(Color.RED);
 //        canvas.drawLine(-(viewWidth / 2), 0, viewWidth / 2, 0, linePaint);
 //        canvas.drawLine(0, -(viewWidth / 2), 0, viewWidth / 2, linePaint);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        //设置控件大小
+        setMeasuredDimension(viewWidth, viewHeight);
     }
 
     /**
