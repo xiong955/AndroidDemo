@@ -1,7 +1,6 @@
 package com.xiong.ui.itemDecoration.decoration;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
@@ -17,15 +16,17 @@ import com.xiong.ui.itemDecoration.adapter.GRcyViewAdapter;
  */
 public class PolyLineItemDecoration extends RecyclerView.ItemDecoration {
 
-    private float mDividerHeight;
-
     // 画笔
     private Paint mPaint;
 
-    public PolyLineItemDecoration() {
+    public PolyLineItemDecoration(int color) {
         mPaint = new Paint();
+        // 抗锯齿
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.RED);
+        // 宽度
+        mPaint.setStrokeWidth(3);
+        // 颜色
+        mPaint.setColor(color);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class PolyLineItemDecoration extends RecyclerView.ItemDecoration {
         // 起点坐标
         float startX = 0;
         float startY = 0;
-        // 终点左边
+        // 终点坐标
         float endX = 0;
         float endY = 0;
 
@@ -85,6 +86,7 @@ public class PolyLineItemDecoration extends RecyclerView.ItemDecoration {
             // 如果都为空,跳出本次,防止绘制错误
             if (startBall == null && endBall == null) {
                 continue;
+
             }
             // 画线
             c.drawLine(startX, startY, endX, endY, mPaint);
@@ -92,26 +94,11 @@ public class PolyLineItemDecoration extends RecyclerView.ItemDecoration {
             startX = endX;
             startY = endY;
             startBall = endBall;
-
-
-            // 无关的东西
-            float dividerTop = view.getTop() - mDividerHeight;
-            float dividerLeft = parent.getPaddingLeft();
-            float dividerBottom = view.getTop();
-            float dividerRight = parent.getWidth() - parent.getPaddingRight();
-            c.drawRect(dividerLeft, dividerTop, dividerRight, dividerBottom, mPaint);
         }
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
-
-//        //第一个ItemView不需要在上面绘制分割线
-//        if (parent.getChildAdapterPosition(view) != 0) {
-//            //这里直接硬编码为1px
-//            outRect.top = 1;
-//            mDividerHeight = 1;
-//        }
     }
 }

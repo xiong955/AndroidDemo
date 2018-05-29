@@ -1,5 +1,6 @@
 package com.xiong.ui.itemDecoration;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private MRcyViewAdapter mAdapter;
     private PolyLineItemDecoration polyLineItemDecoration;
+    private PolyLineItemDecoration polyLineItemDecoration1;
 
     private List<String> mData;
     private boolean isOpen = true;
@@ -44,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isOpen) {
                     mRecyclerView.removeItemDecoration(polyLineItemDecoration);
+                    mRecyclerView.removeItemDecoration(polyLineItemDecoration1);
                     isOpen = false;
                 } else {
                     mRecyclerView.addItemDecoration(polyLineItemDecoration);
+                    mRecyclerView.addItemDecoration(polyLineItemDecoration1);
                     isOpen = true;
                 }
             }
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         mData = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             mData.add(i + "");
         }
     }
@@ -71,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
-        polyLineItemDecoration = new PolyLineItemDecoration();
+        polyLineItemDecoration = new PolyLineItemDecoration(Color.RED);
+        polyLineItemDecoration1 = new PolyLineItemDecoration(Color.BLUE);
         mRecyclerView.addItemDecoration(polyLineItemDecoration);
+        mRecyclerView.addItemDecoration(polyLineItemDecoration1);
     }
 }

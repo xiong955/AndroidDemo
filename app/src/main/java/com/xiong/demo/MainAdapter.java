@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.xiong.demo.widget.ScrollCircleImageView;
+import com.xiong.demo.widget.ScrollImageView;
 
 import java.util.List;
 
@@ -86,7 +86,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tv;
-        ScrollCircleImageView iv;
+        ScrollImageView iv;
 
         MyViewHolder(View view) {
             super(view);
