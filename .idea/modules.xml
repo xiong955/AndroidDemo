@@ -6,7 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/abilityview/abilityview.iml" filepath="$PROJECT_DIR$/abilityview/abilityview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/kotlin/kotlin.iml" filepath="$PROJECT_DIR$/kotlin/kotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lottie/lottie.iml" filepath="$PROJECT_DIR$/lottie/lottie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rv/rv.iml" filepath="$PROJECT_DIR$/rv/rv.iml" />
       <module fileurl="file://$PROJECT_DIR$/shock/shock.iml" filepath="$PROJECT_DIR$/shock/shock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/svga/svga.iml" filepath="$PROJECT_DIR$/svga/svga.iml" />
       <module fileurl="file://$PROJECT_DIR$/textview/textview.iml" filepath="$PROJECT_DIR$/textview/textview.iml" />
       <module fileurl="file://$PROJECT_DIR$/ui/ui.iml" filepath="$PROJECT_DIR$/ui/ui.iml" />
     </modules>

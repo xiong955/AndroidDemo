@@ -10,16 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".tabAndviewpager.MainActivity" />
-        <activity android:name=".DragActivity" />
-        <activity android:name=".itemDecoration.MainActivity">
-
-        </activity>
-        <activity android:name=".DemoActivity">
+        <activity android:name=".DragActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".DemoActivity">
+
         </activity>
     </application>
 

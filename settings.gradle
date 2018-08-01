@@ -1,1 +1,7 @@
-include ':app', ':abilityview', ':textview', ':ui', ':shock', ':kotlin'
+include ':app', ':svga', ':rv'
+include ':lottie'
+include ':abilityview'
+include ':textview'
+include ':ui'
+include ':shock'
+include ':kotlin'

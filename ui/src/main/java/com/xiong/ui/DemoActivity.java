@@ -9,7 +9,11 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
+/**
+ * @author: xiong
+ * @time: 2018/03/15
+ * @说明: 8.0推送测试
+ */
 public class DemoActivity extends AppCompatActivity {
 
     @Override
@@ -29,10 +33,10 @@ public class DemoActivity extends AppCompatActivity {
                     String channelID = "1";
                     String channelName = "推送";
                     NotificationChannel channel = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_HIGH);
+                    assert manager != null;
                     manager.createNotificationChannel(channel);
                     builder.setChannelId(channelID);
                 }
-
 
                 builder.setContentText("111");//主内容.
                 builder.setContentTitle("111");//标题
@@ -43,9 +47,9 @@ public class DemoActivity extends AppCompatActivity {
                     builder.setShowWhen(true);
                 }
                 builder.setAutoCancel(true);
-
                 builder.build();
 
+                assert manager != null;
                 manager.notify(1,builder.build());
             }
         });
