@@ -40,16 +40,16 @@ class MainActivity : AppCompatActivity() {
 
     class RvAdapter(private val items: List<XBean>) : RecyclerView.Adapter<RvAdapter.ViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent?.context).inflate(R.layout.item_main, parent, false)
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main, parent, false)
             return ViewHolder(view)
         }
 
         override fun getItemCount(): Int = items.size
 
-        override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-            holder?.textView?.text = items[position].name
-            holder?.copyIv?.setOnClickListener {
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.textView.text = items[position].name
+            holder.copyIv.setOnClickListener {
                 val cmb = holder.itemView.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 cmb.primaryClip = ClipData.newPlainText(null,items[position].account)
                 Toast.makeText(holder.itemView.context,"复制成功",Toast.LENGTH_SHORT).show()
