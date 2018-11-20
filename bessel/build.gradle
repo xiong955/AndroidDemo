@@ -4,7 +4,7 @@ android {
     compileSdkVersion targetSdk_Version
 
     defaultConfig {
-        applicationId "com.xiong.ui"
+        applicationId "com.xiong.bessel"
         minSdkVersion minSdk_Version
         targetSdkVersion targetSdk_Version
         versionCode 1
@@ -26,8 +26,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:design:$support_version"
-    implementation "com.android.support:support-v4:$support_version"
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
     testImplementation 'junit:junit:4.12'

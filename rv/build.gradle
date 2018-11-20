@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion targetSdk_Version
 
     defaultConfig {
         applicationId "com.xiong.rv"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion minSdk_Version
+        targetSdkVersion targetSdk_Version
         versionCode 1
         versionName "1.0"
 

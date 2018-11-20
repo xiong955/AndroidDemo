@@ -1,4 +1,4 @@
-include ':abilityview'
+include ':abilityview', ':bessel'
 include ':app'
 include ':kotlin'
 include ':lottie'

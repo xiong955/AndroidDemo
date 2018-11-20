@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion targetSdk_Version
 
     defaultConfig {
         applicationId "com.xiong.svga"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion minSdk_Version
+        targetSdkVersion targetSdk_Version
         versionCode 1
         versionName "1.0"
 
@@ -26,7 +26,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.github.yyued:SVGAPlayer-Android:2.1.1'
+    implementation 'com.github.yyued:SVGAPlayer-Android:2.1.8'
 
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
