@@ -14,7 +14,7 @@ kotlin 实现RecyclerView
 ## lottie
 lottie 动画Demo
 ## rv
-RecyclerView相关
+RecyclerView相关  
 ItemDecoration使用
 ## shock
 震动,响铃相关
@@ -23,6 +23,6 @@ YY的svga动画Demo
 ## textview
 自定义可向上滚动的Tv
 ## ui
-Fragment和TabLayout联动
-圆点绕矩形
+Fragment和TabLayout联动  
+圆点绕矩形  
 8.0推送兼容
